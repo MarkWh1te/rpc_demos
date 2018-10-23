@@ -16,6 +16,7 @@ class FormatData(data_pb2_grpc.FormatDataServicer):
     # settting input and output from protobuf file
     def DoFormat(self, request, context):
         str = request.text
+        time.sleep(3)
         return data_pb2.actionresponse(text=str.upper())
 
 

@@ -16,6 +16,13 @@ def run():
     # response is the class in protobuf file
     response = client.DoFormat(data_pb2.actionrequest(text='hello,world!'))
     print("received: " + response.text)
+    # no blocking demo
+    for i in range(10):
+        # no blocking
+        r = client.DoFormat.future(data_pb2.actionrequest(text='hello,world!'))
+        # blocking
+        #r = client.DoFormat(data_pb2.actionrequest(text='hello,world!'))
+        print('fff')
 
 
 if __name__ == '__main__':
